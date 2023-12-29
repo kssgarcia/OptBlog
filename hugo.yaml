@@ -22,7 +22,7 @@ languages:
     languageName: English
     weight: 1
     title: OptBlog
-  zh-cn:
+  es:
     languageName: Spanish
     languageCode: es
     weight: 2
