@@ -1,5 +1,5 @@
 # Hugo configuration file
-title: My Site
+title: OptBlog
 
 # import hextra as module
 module:
@@ -16,6 +16,17 @@ markup:
   highlight:
     noClasses: false
 
+defaultContentLanguage: en
+languages:
+  en:
+    languageName: English
+    weight: 1
+    title: OptBlog
+  zh-cn:
+    languageName: Spanish
+    languageCode: es
+    weight: 2
+    title: OptBlog
 menu:
   main:
     - name: Docs
