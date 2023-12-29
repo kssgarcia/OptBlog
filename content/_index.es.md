@@ -25,10 +25,26 @@ layout: hextra-home
 {{< hextra/hero-button text="Empezar" link="docs" >}}
 </div>
 
-## Explore
+## Explorar
 
-{{< cards >}}
-  {{< card link="docs" title="Docs" icon="book-open" >}}
-  {{< card link="blog" title="Blog" icon="book-open" >}}
-  {{< card link="about" title="About" icon="user" >}}
-{{< /cards >}}
+{{< hextra/feature-grid style="padding:2em 0 0 0">}}
+  {{< hextra/feature-card
+    title="Explora los algoritmos de optimización de topología"
+    subtitle="Es un repositorio que incluye algunos scripts que implementan algoritmos tradicionales de optimización."
+    class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[340px]"
+    image="/img/toprepo.png"
+    imageClass="top-[40%] left-[24px] w-[180%] sm:w-[110%] dark:opacity-80"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(194,97,254,0.15),hsla(0,0%,100%,0));"
+    link="https://github.com/kssgarcia/OptTopolgy"
+  >}}
+
+  {{< hextra/feature-card
+    title="Optimización de topología con aprendizaje profundo"
+    subtitle="Es un repositorio que incluye el desarrollo de aprendizaje profundo para la optimización de la topología."
+    class="aspect-auto md:aspect-[1.1/1] max-md:min-h-[340px]"
+    image="/img/deeprepo.png"
+    imageClass="top-[40%] left-[24px] w-[180%] sm:w-[110%] dark:opacity-80"
+    style="background: radial-gradient(ellipse at 50% 80%,rgba(79,67,255,0.15),hsla(0,0%,100%,0));"
+    link="https://github.com/kssgarcia/DeepLearningOpt"
+  >}}
+{{< /hextra/feature-grid >}}
