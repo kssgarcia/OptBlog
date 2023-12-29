@@ -22,13 +22,13 @@ layout: hextra-home
 </div>
 
 <div class="mb-6">
-{{< hextra/hero-button text="Get Started" link="docs" >}}
+{{< hextra/hero-button text="Empezar" link="docs" >}}
 </div>
 
 ## Explore
 
 {{< cards >}}
   {{< card link="docs" title="Docs" icon="book-open" >}}
-  {{< card link="docs" title="Blog" icon="book-open" >}}
+  {{< card link="blog" title="Blog" icon="book-open" >}}
   {{< card link="about" title="About" icon="user" >}}
 {{< /cards >}}

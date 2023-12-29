@@ -29,6 +29,6 @@ layout: hextra-home
 
 {{< cards >}}
   {{< card link="docs" title="Docs" icon="book-open" >}}
-  {{< card link="docs" title="Blog" icon="book-open" >}}
+  {{< card link="blog" title="Blog" icon="book-open" >}}
   {{< card link="about" title="About" icon="user" >}}
 {{< /cards >}}
