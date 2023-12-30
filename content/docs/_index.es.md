@@ -1,39 +1,30 @@
 ---
-linkTitle: "Documentation"
-title: Introduction
+linkTitle: "Documentación"
+title: Introducción
 ---
 
-👋 Hello! Welcome to the Hextra documentation!
+👋 ¡Hola! ¡Bienvenido a la documentación del proyecto!
 
 <!--more-->
 
-## What is Hextra?
+## ¿Qué es el proyecto?
 
-Hextra is a modern, fast and batteries-included [Hugo][hugo] theme built with [Tailwind CSS][tailwind-css].
-Designed for building beautiful websites for documentation, blogs, and websites, it provides out-of-the-box features and flexibility to meet various requirements.
+El proyecto de optimización topológica mediante el uso de redes neuronales se centra en desarrollar y mejorar modelos de aprendizaje automático para abordar desafíos complejos en el campo de la optimización estructural. A lo largo de varios informes mensuales, se ha logrado un progreso significativo, abordando problemas clave como el sobreajuste en los resultados de las redes neuronales y la necesidad de una mayor diversidad en el conjunto de datos de entrenamiento. Se han explorado diversas arquitecturas de redes neuronales, incluyendo U-Net y Vision Transformer (ViT), diseñadas específicamente para abordar los desafíos únicos de la optimización topológica.
 
-## Features
+Además, se ha investigado la automatización de hiperparámetros para mejorar aún más la capacidad de generalización de los modelos. A través de la expansión del conjunto de datos y la implementación de nuevas arquitecturas, el proyecto busca proporcionar resultados más precisos y aplicables en una amplia gama de escenarios, sentando las bases para futuras investigaciones y avances en el campo de la optimización topológica mediante aprendizaje automático.
 
-- **Beautiful Design** - Inspired by Nextra, Hextra utilizes Tailwind CSS to offer a modern design that makes your site look outstanding.
-- **Responsive Layout and Dark Mode** - It looks great on all devices, from mobile, tablet to desktop. Dark mode is also supported to accommodate various lighting conditions.
-- **Fast and Lightweight** - Powered by Hugo, a lightning-fast static-site generator housed in a single binary file, Hextra keeps its footprint minimal. No JavaScript or Node.js are needed to use it.
-- **Full-text Search** - Built-in offline full-text search powered by FlexSearch, no additional configuration required.
-- **Battery-included** - Markdown, syntax highlighting, LaTeX math formulae, diagrams and Shortcodes elements to enhance your content. Table of contents, breadcrumbs, pagination, sidebar navigation and more are all automatically generated.
-- **Multi-language and SEO Ready** - Multi-language sites made easy with Hugo's multilingual mode. Out-of-the-box support is included for SEO tags, Open Graph, and Twitter Cards.
-
-## Questions or Feedback?
+## ¿Preguntas o Comentarios?
 
 {{< callout emoji="❓" >}}
-  Hextra is still in active development.
-  Have a question or feedback? Feel free to [open an issue](https://github.com/imfing/hextra/issues)!
+  ¿Tienes alguna pregunta o comentario? ¡No dudes en [abrir un problema](https://github.com/kssgarcia/DeepLearningOpt/issues)!
 {{< /callout >}}
 
-## Next
+## Siguiente
 
-Dive right into the following section to get started:
+Sumérgete directamente en la siguiente sección para comenzar:
 
 {{< cards >}}
-  {{< card link="getting-started" title="Getting Started" icon="document-text" subtitle="Learn how to create website using Hextra" >}}
+  {{< card link="getting-started" title="Comenzar" icon="document-text" subtitle="Aprende cómo crear un sitio web utilizando Hextra" >}}
 {{< /cards >}}
 
 [hugo]: https://gohugo.io/

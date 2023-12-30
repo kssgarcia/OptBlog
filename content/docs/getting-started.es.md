@@ -1,192 +1,73 @@
 ---
-title: Getting Started
+title: Empezando
 weight: 1
 next: /docs/guide
 prev: /docs
 ---
 
-## Quick Start from Template
+## Inicio Rápido 
 
-{{< icon "github" >}}&nbsp;[imfing/hextra-starter-template](https://github.com/imfing/hextra-starter-template)
+Se crearon dos repositorios a partir de este proyecto, uno contiene los algoritmos de optimización estructural y el otro tiene todo lo relacionado con el desarrollo de métodos de aprendizaje profundo.
 
-You could quickly get started by using the above template repository.
+- {{< icon "github" >}}&nbsp;[kssgarcia/DeepLearningOpt](https://github.com/kssgarcia/DeepLearningOpt)
+- {{< icon "github" >}}&nbsp;[kssgarcia/OptTopolgy](https://github.com/kssgarcia/OptTopolgy)
 
-<img src="https://docs.github.com/assets/cb-77734/mw-1440/images/help/repository/use-this-template-button.webp" width="500">
+## Repositorio de Optimización Topológica
 
-We have provided a [GitHub Actions workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow) which can help automatically build and deploy your site to GitHub Pages, and host it for free.
-For more options, check out [Deploy Site](../guide/deploy-site).
+- Método BESO [BESO.py](https://github.com/kssgarcia/OptTopolgy/blob/main/BESO.py)
+- Método basado en esfuerzos ESO [ESO_stress_based.py](https://github.com/kssgarcia/OptTopolgy/blob/main/ESO_stress_based.py)
+- Método basado en rigidez ESO [ESO_stiff_based.py](https://github.com/kssgarcia/OptTopolgy/blob/main/ESO_stiff_based.py)
+- Método SIMP [SIMP.py](https://github.com/kssgarcia/OptTopolgy/blob/main/SIMP.py)
 
-[🌐 Demo ↗](https://imfing.github.io/hextra-starter-template/)
-
-## Start as New Project
-
-There are two main ways to add the Hextra theme to your Hugo project:
-
-1. **Hugo Modules (Recommended)**: The simplest and recommended method. [Hugo modules](https://gohugo.io/hugo-modules/) let you pull in the theme directly from its online source. Theme is downloaded automatically and managed by Hugo.
-
-2. **Git Submodule**: Alternatively, add Hextra as a [Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). The theme is downloaded by Git and stored in your project's `themes` folder.
-
-### Setup Hextra as Hugo module
-
-#### Prerequisites
-
-Before starting, you need to have the following software installed:
-
-- [Hugo (extended version)](https://gohugo.io/installation/)
-- [Git](https://git-scm.com/)
-- [Go](https://go.dev/)
-
-#### Steps
+### Instrucciones
 
 {{% steps %}}
 
-### Initialize a new Hugo site
+### Clonar el repositorio
 
-```shell
-hugo new site my-site --format=yaml
+```sh
+git clone https://github.com/kssgarcia/OptTopolgy.git
 ```
 
-### Configure Hextra theme via module
+### Descargar los paquetes requeridos ejecutando el siguiente comando
 
-```shell
-# initialize hugo module
-cd my-site
-hugo mod init github.com/username/my-site
-
-# add Hextra theme
-hugo mod get github.com/imfing/hextra
+```sh
+conda env create -f environment.yml
 ```
 
-Configure `hugo.yaml` to use Hextra theme by adding the following:
+### Instalar solidspy
 
-```yaml
-module:
-  imports:
-    - path: github.com/imfing/hextra
+```sh
+pip install solidspy
 ```
-
-### Create your first content pages
-
-Create new content page for the home page and the documentation page:
-
-```shell
-hugo new content/_index.md
-hugo new content/docs/_index.md
-```
-
-### Preview the site locally
-
-```shell
-hugo server --buildDrafts --disableFastRender
-```
-
-Voila, your new site preview is available at `http://localhost:1313/`.
-
 {{% /steps %}}
 
+## Repositorio de Optimización con Aprendizaje Profundo
 
-{{% details title="How to update theme?" %}}
+- [SIMP_multi.py](https://github.com/kssgarcia/DeepLearningOpt/blob/main/simp/SIMP_multi.py) código utilizado para generar el conjunto de datos de entrenamiento.
+- [CNN.py](https://github.com/kssgarcia/DeepLearningOpt/blob/main/neural_network/CNN.py) código utilizado para entrenar la red neuronal.
+- [load_model.py](https://github.com/kssgarcia/DeepLearningOpt/blob/main/neural_network/CNN2.py) código utilizado para cargar la red neuronal.
+- [SIMP_multi_dist.py](https://github.com/kssgarcia/DeepLearningOpt/blob/main/neural_network/SIMP_multi_dist.py) código utilizado para generar un conjunto de datos con una carga distribuida.
 
-To update all Hugo modules in your project to their latest versions, run the following command:
-
-```shell
-hugo mod get -u
-```
-
-To update Hextra to the [latest released version](https://github.com/imfing/hextra/releases), run the following command:
-
-```shell
-hugo mod get -u github.com/imfing/hextra
-```
-
-See [Hugo Modules](https://gohugo.io/hugo-modules/use-modules/#update-all-modules) for more details.
-
-{{% /details %}}
-
-### Setup Hextra as Git submodule
-
-#### Prerequisites
-
-Before starting, you need to have the following software installed:
-
-- [Hugo (extended version)](https://gohugo.io/installation/)
-- [Git](https://git-scm.com/)
-
-#### Steps
+### Instrucciones
 
 {{% steps %}}
 
-### Initialize a new Hugo site
+### Clonar el repositorio
 
-```shell
-hugo new site my-site --format=yaml
+```sh
+git clone https://github.com/kssgarcia/DeepLearningOpt.git
 ```
 
-### Add Hextra theme as a Git submodule
+### Descargar los paquetes requeridos ejecutando el siguiente comando
 
-```shell
-git submodule add https://github.com/imfing/hextra.git themes/hextra
+```sh
+conda env create -f environment.yml
 ```
 
-Configure `hugo.yaml` to use Hextra theme by adding the following:
+### Instalar solidspy
 
-```yaml
-theme: hextra
+```sh
+pip install solidspy
 ```
-
-### Create your first content pages
-
-Create new content page for the home page and the documentation page:
-
-```shell
-hugo new content/_index.md
-hugo new content/docs/_index.md
-```
-
-### Preview the site locally
-
-```shell
-hugo server --buildDrafts --disableFastRender
-```
-
-Your new site preview is available at `http://localhost:1313/`.
-
 {{% /steps %}}
-
-
-When using [CI/CD](https://en.wikipedia.org/wiki/CI/CD) for Hugo website deployment, it's essential to ensure that the following command is executed before running the `hugo` command.
-
-```shell
-git submodule update --init
-```
-
-Failure to run this command results in the theme folder not being populated with Hextra theme files, leading to a build failure.
-
-
-{{% details title="How to update theme?" %}}
-
-To update all submodules in your repository to their latest commits, run the following command:
-
-```shell
-git submodule update --remote
-```
-
-To update Hextra to the latest commit, run the following command:
-
-```shell
-git submodule update --remote themes/hextra
-```
-
-See [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) for more details.
-
-{{% /details %}}
-
-## Next
-
-Explore the following sections to start adding more contents:
-
-{{< cards >}}
-  {{< card link="../guide/organize-files" title="Organize Files" icon="document-duplicate" >}}
-  {{< card link="../guide/configuration" title="Configuration" icon="adjustments" >}}
-  {{< card link="../guide/markdown" title="Markdown" icon="markdown" >}}
-{{< /cards >}}
