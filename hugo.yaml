@@ -50,6 +50,11 @@ menu:
       url: "https://github.com/kssgarcia"
       params:
         icon: github
+  sidebar:
+    - identifier: solidsp
+      name: "SolidsPy github ↗"
+      url: "https://github.com/AppliedMechanics-EAFIT/SolidsPy"
+      weight: 1
 
 params:
   navbar:

@@ -5,332 +5,422 @@ next: /docs
 prev: /docs/getting-started
 ---
 
-## solidsopt.models module
+
+## solidsopt.optimize
+
+### `BESO(length, height, nx, ny, dirs, positions, niter, t, ER, volfrac, plot=False)`
+
+Realiza la Optimización Estructural Evolutiva (ESO) basada en la rigidez para una estructura de viga.
+
+**Parámetros:**
+
+- `length`: Longitud de la viga.
+- `height`: Altura de la viga.
+- `nx`: Número de elementos en la dirección x.
+- `ny`: Número de elementos en la dirección y.
+- `dirs`: Lista de direcciones.
+- `positions`: Lista de posiciones.
+- `niter`: Número de iteraciones para el proceso de ESO.
+- `t`: Umbral de error.
+- `ER`: Incremento de RR para cada iteración.
+- `volfrac`: Fracción de volumen para la estructura óptima.
+- `plot`: Si es True, muestra el mallado inicial y optimizado. Por defecto, es False.
+
+**Retorna:**
+
+- `ELS`: ndarray: Elementos optimizados de la estructura.
+- `nodes`: ndarray: Nodos optimizados de la estructura.
+
+### `ESO_stiff(length, height, nx, ny, dirs, positions, niter, RR, ER, volfrac, plot=False)`
+
+Realiza la Optimización Estructural Evolutiva (ESO) basada en la rigidez para una estructura de viga.
+
+**Parámetros:**
+
+- `length`: Longitud de la viga.
+- `height`: Altura de la viga.
+- `nx`: Número de elementos en la dirección x.
+- `ny`: Número de elementos en la dirección y.
+- `dirs`: Lista de direcciones.
+- `positions`: Lista de posiciones.
+- `niter`: Número de iteraciones para el proceso de ESO.
+- `RR`: Umbral de esfuerzo relativo para eliminar elementos.
+- `ER`: Incremento de RR para cada iteración.
+- `volfrac`: Fracción de volumen para la estructura óptima.
+- `plot`: Si es True, muestra el mallado inicial y optimizado. Por defecto, es False.
+
+**Retorna:**
+
+- `ELS`: ndarray: Elementos optimizados de la estructura.
+- `nodes`: ndarray: Nodos optimizados de la estructura.
+
+### `ESO_stress(length, height, nx, ny, dirs, positions, niter, RR, ER, volfrac, plot=False)`
+
+Realiza la Optimización Estructural Evolutiva (ESO) basada en el esfuerzo para una estructura de viga.
+
+**Parámetros:**
+
+- `length`: Longitud de la viga.
+- `height`: Altura de la viga.
+- `nx`: Número de elementos en la dirección x.
+- `ny`: Número de elementos en la dirección y.
+- `dirs`: Lista de direcciones.
+- `positions`: Lista de posiciones.
+- `niter`: Número de iteraciones para el proceso de ESO.
+- `RR`: Umbral de esfuerzo relativo para eliminar elementos.
+- `ER`: Incremento de RR para cada iteración.
+- `volfrac`: Fracción de volumen para la estructura óptima.
+- `plot`: Si es True, muestra el mallado inicial y optimizado. Por defecto, es False.
+
+**Retorna:**
+
+- `ELS`: ndarray: Elementos optimizados de la estructura.
+- `nodes`: ndarray: Nodos optimizados de la estructura.
+
+### `SIMP(length, height, nx, ny, dirs, positions, niter, penal, plot=False)`
+
+Realiza la Optimización Topológica de Material Isotrópico Sólido con Penalización (SIMP).
+
+**Parámetros:**
+
+- `length`: Longitud de la viga.
+- `height`: Altura de la viga.
+- `nx`: Número de elementos en la dirección x.
+- `ny`: Número de elementos en la dirección y.
+- `dirs`: Lista de direcciones.
+- `positions`: Lista de posiciones.
+- `niter`: Número de iteraciones para el proceso de SIMP.
+- `penal`: Factor de penalización utilizado en el método SIMP.
+- `plot`: Si es True, muestra el mallado inicial y optimizado. Por defecto, es False.
+
+**Retorna:**
+
+- `rho`: ndarray: Distribución de densidad optimizada de la estructura.
+
+## solidsopt.models
 
 ### `CNN_model(input_shape)`
 
-Load the CNN model architecture
+Carga la arquitectura del modelo de red neuronal convolucional (CNN).
 
-**Parameters:**
+**Parámetros:**
 
-- `input_shape`: The shape of the input image
+- `input_shape`: Forma de la imagen de entrada.
 
-**Returns:**
+**Retorna:**
 
 - `model`: tensorflow.keras.models.Model
-  - Model architecture
+  - Arquitectura del modelo
 
 ### `UNN_model(input_shape)`
 
-Load the U-NET model architecture
+Carga la arquitectura del modelo de red neuronal U-NET (UNN).
 
-**Parameters:**
+**Parámetros:**
 
-- `input_shape`: The shape of the input image
+- `input_shape`: Forma de la imagen de entrada.
 
-**Returns:**
+**Retorna:**
 
 - `model`: tensorflow.keras.models.Model
-  - Model architecture
+  - Arquitectura del modelo
 
 ### `ViT_model(input_shape)`
 
-Load the ViT model architecture with CNN decoder
+Carga la arquitectura del modelo de red neuronal ViT con decodificador CNN.
 
-**Parameters:**
+**Parámetros:**
 
-- `input_shape`: The shape of the input image
+- `input_shape`: Forma de la imagen de entrada.
 
-**Returns:**
+**Retorna:**
 
 - `model`: tensorflow.keras.models.Model
-  - Model architecture
+  - Arquitectura del modelo
 
-
-## solidsopt.Utils.beams module
+## solidsopt.Utils.beams
 
 ### `beam(L=10, H=10, E=206800000000.0, v=0.28, nx=20, ny=20, dirs=array([], dtype=float64), positions=array([], dtype=float64), n=1)`
 
-This function selects the appropriate beam function to call based on the value of n.
+Esta función selecciona la función de viga apropiada para llamar según el valor de n.
 
-**Parameters:**
+**Parámetros:**
 
-- `L`: Beam’s length, by default 10
-- `H`: Beam’s height, by default 10
-- `F`: Vertical force, by default -1000000
-- `E`: Young’s modulus, by default 206.8e9
-- `v`: Poisson’s ratio, by default 0.28
-- `nx`: Number of elements in the x direction, by default 20
-- `ny`: Number of elements in the y direction, by default 20
-- `n`: Selector for the beam function to call, by default 1
+- `L`: Longitud de la viga, por defecto 10
+- `H`: Altura de la viga, por defecto 10
+- `F`: Fuerza vertical, por defecto -1000000
+- `E`: Módulo de Young, por defecto 206.8e9
+- `v`: Coeficiente de Poisson, por defecto 0.28
+- `nx`: Número de elementos en la dirección x, por defecto 20
+- `ny`: Número de elementos en la dirección y, por defecto 20
+- `n`: Selector para la función de viga a llamar, por defecto 1
 
-**Returns:**
+**Retorna:**
 
-- `ndarray`: Nodes array returned by the selected beam function
+- `ndarray`: Array de nodos devuelto por la función de viga seleccionada
 
 ### `beam_1(L=10, H=10, E=206800000000.0, v=0.28, nx=20, ny=20, dirs=array([], dtype=float64), positions=array([], dtype=float64))`
 
-Make the mesh for a quadrilateral model with cantilever beam’s constraints.
+Crea la malla para un modelo cuadrilátero con restricciones de viga empotrada.
 
-**Parameters:**
+**Parámetros:**
 
-- `L`: Length of the beam, by default 10
-- `H`: Height of the beam, by default 10
-- `E`: Young’s modulus, by default 206.8e9
-- `v`: Poisson’s ratio, by default 0.28
-- `nx`: Number of elements in the x direction, by default 20
-- `ny`: Number of elements in the y direction, by default 20
-- `dirs`: An array with the directions of the loads, by default empty array. `[[0,1],[1,0],[0,-1]]`
-- `positions`: An array with the positions of the loads, by default empty array. `[[61,30], [1,30], [30, 1]]`
+- `L`: Longitud de la viga, por defecto 10
+- `H`: Altura de la viga, por defecto 10
+- `E`: Módulo de Young, por defecto 206.8e9
+- `v`: Coeficiente de Poisson, por defecto 0.28
+- `nx`: Número de elementos en la dirección x, por defecto 20
+- `ny`: Número de elementos en la dirección y, por defecto 20
+- `dirs`: Un array con las direcciones de las cargas, por defecto array vacío. `[[0,1],[1,0],[0,-1]]`
+- `positions`: Un array con las posiciones de las cargas, por defecto array vacío. `[[61,30], [1,30], [30, 1]]`
 
-**Returns:**
+**Retorna:**
 
-- `nodes`: Array of nodes
-- `mats`: Array of material properties
-- `els`: Array of elements
-- `loads`: Array of loads
+- `nodes`: Array de nodos
+- `mats`: Array de propiedades del material
+- `els`: Array de elementos
+- `loads`: Array de cargas
 
 ### `beam_2(L=10, H=10, E=206800000000.0, v=0.28, nx=20, ny=20, dirs=array([], dtype=float64), positions=array([], dtype=float64))`
 
-Make the mesh for a quadrilateral model with simply supported beam’s constraints.
+Crea la malla para un modelo cuadrilátero con restricciones de viga simplemente apoyada.
 
-**Parameters:**
+**Parámetros:**
 
-- `L`: Length of the beam, by default 10
-- `H`: Height of the beam, by default 10
-- `E`: Young’s modulus, by default 206.8e9
-- `v`: Poisson’s ratio, by default 0.28
-- `nx`: Number of elements in the x direction, by default 20
-- `ny`: Number of elements in the y direction, by default 20
-- `dirs`: An array with the directions of the loads, by default empty array. `[[0,1],[1,0],[0,-1]]`
-- `positions`: An array with the positions of the loads, by default empty array. `[[61,30], [1,30], [30, 1]]`
+- `L`: Longitud de la viga, por defecto 10
+- `H`: Altura de la viga, por defecto 10
+- `E`: Módulo de Young, por defecto 206.8e9
+- `v`: Coeficiente de Poisson, por defecto 0.28
+- `nx`: Número de elementos en la dirección x, por defecto 20
+- `ny`: Número de elementos en la dirección y, por defecto 20
+- `dirs`: Un array con las direcciones de las cargas, por defecto array vacío. `[[0,1],[1,0],[0,-1]]`
+- `positions`: Un array con las posiciones de las cargas, por defecto array vacío. `[[61,30], [1,30], [30, 1]]`
 
-**Returns:**
+**Retorna:**
 
-- `nodes`: Array of nodes
-- `mats`: Array of material properties
-- `els`: Array of elements
-- `loads`: Array of loads
+- `nodes`: Array de nodos
+- `mats`: Array de propiedades del material
+- `els`: Array de elementos
+- `loads`: Array de cargas
 
-## solidsopt.Utils.solver module
+## solidsopt.Utils.solver
 
 ### `adjacency_nodes(nodes, els)`
 
-Create an adjacency matrix for the elements connected to each node.
+Crea una matriz de adyacencia para los elementos conectados a cada nodo.
 
-**Parameters:**
+**Parámetros:**
 
-- `nodes`: Array with models nodes.
-- `els`: Array with models elements.
+- `nodes`: Array con los nodos del modelo.
+- `els`: Array con los elementos del modelo.
 
-**Returns:**
+**Retorna:**
 
-- `adj_nodes`: Adjacency elements for each node.
+- `adj_nodes`: Elementos adyacentes para cada nodo.
 
 ### `center_els(nodes, els)`
 
-Calculate the center of each element.
+Calcula el centro de cada elemento.
 
-**Parameters:**
+**Parámetros:**
 
-- `nodes`: Array with models nodes.
-- `els`: Array with models elements.
+- `nodes`: Array con los nodos del modelo.
+- `els`: Array con los elementos del modelo.
 
-**Returns:**
+**Retorna:**
 
-- `centers`: Centers of each element.
+- `centers`: Centros de cada elemento.
 
 ### `del_node(nodes, els, loads, BC)`
 
-Restrict nodes dof that aren’t been used and free up the nodes that are in use.
+Restringe los grados de libertad de los nodos que no se utilizan y libera los nodos que están en uso.
 
-**Parameters:**
+**Parámetros:**
 
-- `nodes`: Array with models nodes
-- `els`: Array with models elements
-- `loads`: Array with models loads
-- `BC`: Boundary conditions nodes
+- `nodes`: Array con los nodos del modelo.
+- `els`: Array con los elementos del modelo.
+- `loads`: Array con las cargas del modelo.
+- `BC`: Nodos con condiciones de contorno.
 
-**Returns:**
+**Retorna:**
 
 ### `del_nodeESO(nodes, els)`
 
-Restrict nodes dof that aren’t been used.
+Restringe los grados de libertad de los nodos que no se utilizan.
 
-**Parameters:**
+**Parámetros:**
 
-- `nodes`: Array with models nodes
-- `els`: Array with models elements
+- `nodes`: Array con los nodos del modelo.
+- `els`: Array con los elementos del modelo.
 
-**Returns:**
+**Retorna:**
 
 ### `density_filter(centers, r_min, rho, d_rho)`
 
-Perform the sensitivity filter.
+Realiza el filtro de sensibilidad.
 
-**Parameters:**
+**Parámetros:**
 
-- `centers`: Array with the centers of each element.
-- `r_min`: Minimum radius of the filter.
-- `rho`: Array with the density of each element.
-- `d_rho`: Array with the derivative of the density of each element.
+- `centers`: Array con los centros de cada elemento.
+- `r_min`: Radio mínimo del filtro.
+- `rho`: Array con la densidad de cada elemento.
+- `d_rho`: Array con la derivada de la densidad de cada elemento.
 
-**Returns:**
+**Retorna:**
 
-- `densi_els`: Sensitivity of each element with filter
+- `densi_els`: Sensibilidad de cada elemento con filtro
 
 ### `optimality_criteria(nelx, nely, rho, d_c, g)`
 
-Optimality criteria method.
+Método de criterio de optimalidad.
 
-**Parameters:**
+**Parámetros:**
 
-- `nelx`: Number of elements in x direction.
-- `nely`: Number of elements in y direction.
-- `rho`: Array with the density of each element.
-- `d_c`: Array with the derivative of the compliance.
-- `g`: Volume constraint.
+- `nelx`: Número de elementos en la dirección x.
+- `nely`: Número de elementos en la dirección y.
+- `rho`: Array con la densidad de cada elemento.
+- `d_c`: Array con la derivada de la cumplimiento.
+- `g`: Restricción de volumen.
 
-**Returns:**
+**Retorna:**
 
-- `rho_new`: Array with the new density of each element.
-- `gt`: Volume constraint.
+- `rho_new`: Array con la nueva densidad de cada elemento.
+- `gt`: Restricción de volumen.
 
 ### `protect_els(els, nels, loads, BC)`
 
-Compute a mask array with the elements that don’t must be deleted.
+Calcula una matriz de máscara con los elementos que no deben eliminarse.
 
-**Parameters:**
+**Parámetros:**
 
-- `els`: Array with models elements
-- `nels`: Number of elements
-- `loads`: Array with models loads
-- `BC`: Boundary conditions nodes
+- `els`: Array con los elementos del modelo.
+- `nels`: Número de elementos.
+- `loads`: Array con las cargas del modelo.
+- `BC`: Nodos con condiciones de contorno.
 
-**Returns:**
+**Retorna:**
 
-- `mask_els`: Array with the elements that don’t must be deleted.
+- `mask_els`: Array con los elementos que no deben eliminarse.
 
 ### `protect_elsESO(els, loads, BC)`
 
-Compute a mask array with the elements that don’t must be deleted.
+Calcula una matriz de máscara con los elementos que no deben eliminarse.
 
-**Parameters:**
+**Parámetros:**
 
-- `els`: Array with models elements
-- `loads`: Array with models loads
-- `BC`: Boundary conditions nodes
+- `els`: Array con los elementos del modelo.
+- `loads`: Array con las cargas del modelo.
+- `BC`: Nodos con condiciones de contorno.
 
-**Returns:**
+**Retorna:**
 
-- `mask_els`: Array with the elements that don’t must be deleted.
+- `mask_els`: Array con los elementos que no deben eliminarse.
 
 ### `sensitivity_elsBESO(nodes, mats, els, mask, UC)`
 
-Calculate the sensitivity number for each element.
+Calcula el número de sensibilidad para cada elemento.
 
-**Parameters:**
+**Parámetros:**
 
-- `nodes`: Array with models nodes
-- `mats`: Array with models materials
-- `els`: Array with models elements
-- `mask`: Mask of optimal structure
-- `UC`: Displacements at nodes
+- `nodes`: Array con los nodos del modelo.
+- `mats`: Array con los materiales del modelo.
+- `els`: Array con los elementos del modelo.
+- `mask`: Máscara de estructura óptima.
+- `UC`: Desplazamientos en los nodos.
 
-**Returns:**
+**Retorna:**
 
-- `sensi_number`: Sensitivity number for each element.
+- `sensi_number`: Número de sensibilidad para cada elemento.
 
 ### `sensitivity_elsESO(nodes, mats, els, UC)`
 
-Calculate the sensitivity number for each element.
+Calcula el número de sensibilidad para cada elemento.
 
-**Parameters:**
+**Parámetros:**
 
-- `nodes`: Array with models nodes
-- `mats`: Array with models materials
-- `els`: Array with models elements
-- `UC`: Displacements at nodes
+- `nodes`: Array con los nodos del modelo.
+- `mats`: Array con los materiales del modelo.
+- `els`: Array con los elementos del modelo.
+- `UC`: Desplazamientos en los nodos.
 
-**Returns:**
+**Retorna:**
 
-- `sensi_number`: Sensitivity number for each element.
+- `sensi_number`: Número de sensibilidad para cada elemento.
 
 ### `sensitivity_filter(nodes, centers, sensi_nodes, r_min)`
 
-Perform the sensitivity filter.
+Realiza el filtro de sensibilidad.
 
-**Parameters:**
+**Parámetros:**
 
-- `nodes`: Array with models nodes
-- `sensi_nodes`: Array with nodal sensitivity
-- `centers`: Array with center of elements
-- `r_min`: Minimum distance
+- `nodes`: Array con los nodos del modelo.
+- `sensi_nodes`: Array con la sensibilidad nodal.
+- `centers`: Array con el centro de los elementos.
+- `r_min`: Distancia mínima.
 
-**Returns:**
+**Retorna:**
 
-- `sensi_els`: Sensitivity of each element with filter
+- `sensi_els`: Sensibilidad de cada elemento con filtro
 
 ### `sensitivity_nodes(nodes, adj_nodes, centers, sensi_els)`
 
-Calculate the sensitivity of each node.
+Calcula la sensibilidad de cada nodo.
 
-**Parameters:**
+**Parámetros:**
 
-- `nodes`: Array with models nodes
-- `adj_nodes`: Adjacency matrix of nodes
-- `centers`: Array with center of elements
-- `sensi_els`: Sensitivity of each element without filter
+- `nodes`: Array con los nodos del modelo.
+- `adj_nodes`: Matriz de adyacencia de nodos.
+- `centers`: Array con el centro de los elementos.
+- `sensi_els`: Sensibilidad de cada elemento sin filtro.
 
-**Returns:**
+**Retorna:**
 
-- `sensi_nodes`: Sensitivity of each node
+- `sensi_nodes`: Sensibilidad de cada nodo
 
 ### `sparse_assem(elements, mats, neq, assem_op, kloc)`
 
-Assembles the global stiffness matrix using a sparse storing scheme
+Ensambla la matriz de rigidez global utilizando un esquema de almacenamiento disperso
 
-**Parameters:**
+**Parámetros:**
 
-- `elements`: Array with the number for the nodes in each element.
-- `mats`: Array with the material profiles.
-- `neq`: Number of active equations in the system.
-- `assem_op`: Assembly operator.
-- `uel`: Python function that returns the local stiffness matrix.
-- `kloc`: Stiffness matrix of a single element
+- `elements`: Array con el número de los nodos en cada elemento.
+- `mats`: Array con los perfiles de material.
+- `neq`: Número de ecuaciones activas en el sistema.
+- `assem_op`: Operador de ensamblaje.
+- `uel`: Función de Python que devuelve la matriz de rigidez local.
+- `kloc`: Matriz de rigidez de un solo elemento
 
-**Returns:**
+**Retorna:**
 
-- `stiff`: Array with the global stiffness matrix in a sparse Compressed Sparse Row (CSR) format.
+- `stiff`: Array con la matriz de rigidez global en un formato disperso Compressed Sparse Row (CSR).
 
 ### `strain_els(els, E_nodes, S_nodes)`
 
-Compute the elements strains and stresses.
+Calcula las deformaciones y tensiones de los elementos.
 
-**Parameters:**
+**Parámetros:**
 
-- `els`: Array with models elements
-- `E_nodes`: Strains at nodes.
-- `S_nodes`: Stresses at nodes.
+- `els`: Array con los elementos del modelo.
+- `E_nodes`: Deformaciones en los nodos.
+- `S_nodes`: Tensiones en los nodos.
 
-**Returns:**
+**Retorna:**
 
-- `E_els`: Strains at elements.
-- `S_els`: Stresses at elements.
+- `E_els`: Deformaciones en los elementos.
+- `S_els`: Tensiones en los elementos.
 
 ### `volume(els, length, height, nx, ny)`
 
-Compute volume.
+Calcula el volumen.
 
-**Parameters:**
+**Parámetros:**
 
-- `els`: Array with models elements.
-- `length`: Length of the beam.
-- `height`: Height of the beam.
-- `nx`: Number of elements in x direction.
-- `ny`: Number of elements in y direction.
+- `els`: Array con los elementos del modelo.
+- `length`: Longitud de la viga.
+- `height`: Altura de la viga.
+- `nx`: Número de elementos en la dirección x.
+- `ny`: Número de elementos en la dirección y.
 
-**Returns:**
+**Retorna:**
 
-- `V`: float: Volume of the structure.
-
+- `V`: float: Volumen de la estructura.

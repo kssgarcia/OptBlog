@@ -5,7 +5,99 @@ next: /docs
 prev: /docs/getting-started
 ---
 
-## solidsopt.models module
+## solidsopt.optimize
+
+### `BESO(length, height, nx, ny, dirs, positions, niter, t, ER, volfrac, plot=False)`
+
+Performs Evolutionary Structural Optimization (ESO) based on stiffness for a beam structure.
+
+**Parameters:**
+
+- `length`: The length of the beam.
+- `height`: The height of the beam.
+- `nx`: The number of elements in the x direction.
+- `ny`: The number of elements in the y direction.
+- `dirs`: List of directions.
+- `positions`: List of positions.
+- `niter`: The number of iterations for the ESO process.
+- `t`: Threshold for error.
+- `ER`: The increment of RR for each iteration.
+- `volfrac`: The volume fraction for the optimal structure.
+- `plot`: If True, plot the initial and optimized mesh. Defaults to False.
+
+**Returns:**
+
+- `ELS`: ndarray: The optimized elements of the structure.
+- `nodes`: ndarray: The optimized nodes of the structure.
+
+### `ESO_stiff(length, height, nx, ny, dirs, positions, niter, RR, ER, volfrac, plot=False)`
+
+Performs Evolutionary Structural Optimization (ESO) based on stiffness for a beam structure.
+
+**Parameters:**
+
+- `length`: The length of the beam.
+- `height`: The height of the beam.
+- `nx`: The number of elements in the x direction.
+- `ny`: The number of elements in the y direction.
+- `dirs`: List of directions.
+- `positions`: List of positions.
+- `niter`: The number of iterations for the ESO process.
+- `RR`: The relative stress threshold for removing elements.
+- `ER`: The increment of RR for each iteration.
+- `volfrac`: The volume fraction for the optimal structure.
+- `plot`: If True, plot the initial and optimized mesh. Defaults to False.
+
+**Returns:**
+
+- `ELS`: ndarray: The optimized elements of the structure.
+- `nodes`: ndarray: The optimized nodes of the structure.
+
+### `ESO_stress(length, height, nx, ny, dirs, positions, niter, RR, ER, volfrac, plot=False)`
+
+Performs Evolutionary Structural Optimization (ESO) based on stress for a beam structure.
+
+**Parameters:**
+
+- `length`: The length of the beam.
+- `height`: The height of the beam.
+- `nx`: The number of elements in the x direction.
+- `ny`: The number of elements in the y direction.
+- `dirs`: List of directions.
+- `positions`: List of positions.
+- `niter`: The number of iterations for the ESO process.
+- `RR`: The relative stress threshold for removing elements.
+- `ER`: The increment of RR for each iteration.
+- `volfrac`: The volume fraction for the optimal structure.
+- `plot`: If True, plot the initial and optimized mesh. Defaults to False.
+
+**Returns:**
+
+- `ELS`: ndarray: The optimized elements of the structure.
+- `nodes`: ndarray: The optimized nodes of the structure.
+
+### `SIMP(length, height, nx, ny, dirs, positions, niter, penal, plot=False)`
+
+Performs Solid Isotropic Material with Penalization (SIMP) for topology optimization.
+
+**Parameters:**
+
+- `length`: The length of the beam.
+- `height`: The height of the beam.
+- `nx`: The number of elements in the x direction.
+- `ny`: The number of elements in the y direction.
+- `dirs`: List of directions.
+- `positions`: List of positions.
+- `niter`: The number of iterations for the SIMP process.
+- `penal`: Penalization factor used in the SIMP method.
+- `plot`: If True, plot the initial and optimized mesh. Defaults to False.
+
+**Returns:**
+
+- `rho`: ndarray: The optimized density distribution of the structure.
+
+
+## solidsopt.models
 
 ### `CNN_model(input_shape)`
 
@@ -47,7 +139,7 @@ Load the ViT model architecture with CNN decoder
   - Model architecture
 
 
-## solidsopt.Utils.beams module
+## solidsopt.Utils.beams
 
 ### `beam(L=10, H=10, E=206800000000.0, v=0.28, nx=20, ny=20, dirs=array([], dtype=float64), positions=array([], dtype=float64), n=1)`
 
@@ -112,7 +204,7 @@ Make the mesh for a quadrilateral model with simply supported beam’s constrain
 - `els`: Array of elements
 - `loads`: Array of loads
 
-## solidsopt.Utils.solver module
+## solidsopt.Utils.solver
 
 ### `adjacency_nodes(nodes, els)`
 
