@@ -1,5 +1,5 @@
 ---
-title: References
+title: Referencias SolidsOpt
 weight: 3
 next: /docs
 prev: /docs/getting-started

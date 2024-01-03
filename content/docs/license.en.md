@@ -1,7 +1,7 @@
 ---
 title: License
 weight: 3
-next: /docs/references
+next: /docs/solidsopt-ref
 prev: /docs/howtorun
 ---
 
