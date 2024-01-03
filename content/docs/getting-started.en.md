@@ -1,11 +1,26 @@
 ---
 title: Getting Started
 weight: 1
-next: /docs/modules
-prev: /docs
+next: /docs/howtorun
+prev: /docs/
 ---
 
-## Quick Start 
+The code is written in Python and it depends on [Numpy](https://numpy.org), [scipy](https://scipy.org), [TensorFlow](https://www.tensorflow.org) and [SolidsPy](https://solidspy.readthedocs.io/en/latest/).
+
+
+### Installation
+
+```sh
+pip install solidsopt
+```
+
+### Load weights for neural networks
+
+```sh
+load model
+```
+
+## Repositories 
 
 Two repositories were created from this project, one contains the structural optimization algorithms and the other has everything related to the development of deep learning methods.
 

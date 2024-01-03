@@ -1,11 +1,26 @@
 ---
 title: Empezando
 weight: 1
-next: /docs/guide
-prev: /docs
+next: /docs/howtorun
+prev: /docs/
 ---
 
-## Inicio Rápido 
+El código está escrito en Python y depende de [Numpy](https://numpy.org), [scipy](https://scipy.org), [TensorFlow](https://www.tensorflow.org) y [SolidsPy](https://solidspy.readthedocs.io/en/latest/).
+
+### Instalación
+
+```sh
+pip install solidsopt
+```
+
+### Cargar pesos para redes neuronales
+
+
+```sh
+Load model
+```
+
+## Repositorios
 
 Se crearon dos repositorios a partir de este proyecto, uno contiene los algoritmos de optimización estructural y el otro tiene todo lo relacionado con el desarrollo de métodos de aprendizaje profundo.
 
