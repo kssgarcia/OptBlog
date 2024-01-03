@@ -1,5 +1,5 @@
 ---
-title: OptTopology reference
+title: References
 weight: 3
 next: /docs
 prev: /docs/getting-started

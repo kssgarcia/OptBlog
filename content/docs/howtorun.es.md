@@ -1,7 +1,7 @@
 ---
 title: Como correr una optimización
 weight: 2
-next: /docs/OptTopology-ref
+next: /docs/references
 prev: /docs/getting-started
 ---
 
