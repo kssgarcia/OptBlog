@@ -1,5 +1,5 @@
 ---
-title: "Como generar documentacion de codigos"
+title: "Como generar documentación de códigos"
 date: 2024-01-10T11:48:52-05:00
 draft: false
 math: true
