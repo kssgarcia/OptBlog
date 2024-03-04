@@ -11,7 +11,7 @@ Para descargar el model y usarlo para predecir realice los siguientes pasos:
 
 {{% steps %}}
 
-### Descargar los pesos
+### Descargar los pasos
 
 ```python
 import requests
